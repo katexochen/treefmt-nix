@@ -143,9 +143,10 @@ in
       description = ''
         File to look for to determine the root of the project in the
         build.wrapper.
+        Set to null to let treefmt use its native detection.
       '';
       default = ".git/config";
-      type = types.str;
+      type = types.nullOr types.str;
     };
 
     enableDefaultExcludes = mkOption {
@@ -234,7 +235,14 @@ in
         default =
           let
             code =
-              if builtins.compareVersions "2.0.0-rc4" config.package.version == 1 then
+              if config.projectRootFile == null then
+                ''
+                  set -euo pipefail
+                  exec ${config.package}/bin/treefmt \
+                    --config-file=${config.build.configFile} \
+                    "$@"
+                ''
+              else if builtins.compareVersions "2.0.0-rc4" config.package.version == 1 then
                 ''
                   set -euo pipefail
                   find_up() {
