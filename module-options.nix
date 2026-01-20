@@ -267,7 +267,9 @@ in
                 '';
             x = pkgs.writeShellScriptBin "treefmt" code;
           in
-          (x // { meta = config.package.meta // x.meta; });
+          x.overrideAttrs (prev: {
+            meta = config.package.meta // prev.meta;
+          });
       };
       programs = mkOption {
         type = types.attrsOf types.package;
