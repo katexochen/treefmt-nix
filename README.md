@@ -261,6 +261,7 @@ functions.
 * [erlfmt](programs/erlfmt.nix)
 * [fantomas](programs/fantomas.nix)
 * [fish_indent](programs/fish_indent.nix)
+* [flake-edit](programs/flake-edit.nix)
 * [fnlfmt](programs/fnlfmt.nix)
 * [formatjson5](programs/formatjson5.nix)
 * [fourmolu](programs/fourmolu.nix)
