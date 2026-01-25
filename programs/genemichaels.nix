@@ -124,7 +124,7 @@ in
     settingsFile = mkOption {
       description = "The configuration file used by `genemichaels`.";
       type = types.path;
-      example = lib.literalExpression ''./.genemichaels.json'';
+      example = lib.literalExpression "./.genemichaels.json";
       default = configFormat.generate ".genemichaels.json" cfg.settings;
       defaultText = lib.literalMD "Generated JSON file from `${showOptionParent options.programs.genemichaels.settings.max_width 1}`";
     };
