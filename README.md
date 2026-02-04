@@ -339,6 +339,7 @@ functions.
 * [templ](programs/templ.nix)
 * [terraform](programs/terraform.nix)
 * [texfmt](programs/texfmt.nix)
+* [tilt](programs/tilt.nix)
 * [toml-sort](programs/toml-sort.nix)
 * [typos](programs/typos.nix)
 * [typstyle](programs/typstyle.nix)
